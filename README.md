@@ -29,6 +29,11 @@ change 3 parameters in `/usr/jails/flavours/riakcsnode/usr/local/share/riak-cs/a
 
 `YOUR_ADMIN_SECRET` to the secret of your admin user
 
+update the `/usr/jails/flavours/riakcsnode/etc/resolv.conf` with your setting
+or just copy the resolv.conf of the host
+
+`cp /etc/resolv.conf /usr/jails/flavours/riakcsnode/etc/resolv.conf`
+
 create your jail using this flavour (use your jailname and your ip)
 
 `ezjail-admin create -f riakcsnode yourjailname.yourdomain 10.5.1.120`
