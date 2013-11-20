@@ -11,7 +11,11 @@ This script could be helpful assuming
 
 If so, then, this is a flavour for ezjail to create a new jail with all necessary dependencies and riak-cs 1.4.2
 
-How to use it:
+==================
+
+###How to use it:
+
+#### by hand
 
 on your host machine 
 
@@ -35,10 +39,13 @@ or just copy the resolv.conf of the host
 
 `cp /etc/resolv.conf /usr/jails/flavours/riakcsnode/etc/resolv.conf`
 
+#### via install.sh
+
 you also can use the install.sh script which does the above for you
 
 `install.sh -k admin_key -s admin secret -i stanchion_ip` 
 
+### have fun
 
 create your jail using this flavour (use your jailname and your ip)
 
