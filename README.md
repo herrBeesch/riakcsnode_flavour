@@ -30,9 +30,15 @@ change 3 parameters in `/usr/jails/flavours/riakcsnode/usr/local/share/riak-cs/a
 `YOUR_ADMIN_SECRET` to the secret of your admin user
 
 update the `/usr/jails/flavours/riakcsnode/etc/resolv.conf` with your setting
+
 or just copy the resolv.conf of the host
 
 `cp /etc/resolv.conf /usr/jails/flavours/riakcsnode/etc/resolv.conf`
+
+you also can use the install.sh script which does the above for you
+
+`install.sh -k admin_key -s admin secret -i stanchion_ip` 
+
 
 create your jail using this flavour (use your jailname and your ip)
 
