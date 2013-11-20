@@ -21,7 +21,7 @@ clone this repo into "riakcsnode"
 
 `git clone https://github.com/herrBeesch/riakcsnode_flavour.git riakcsnode`
 
-change 3 parameters in /usr/jails/flavours/riakcsnode/usr/local/riak-cs/app.config :
+change 3 parameters in `/usr/jails/flavours/riakcsnode/usr/local/share/riak-cs/app.config` :
 
 `YOUR_STACHION_IP` to the ip address of your stanchion
 
