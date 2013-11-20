@@ -47,7 +47,9 @@ or just copy the resolv.conf of the host
 
 you also can use the install.sh script which does the above for you
 
-`install.sh -k admin_key -s admin secret -i stanchion_ip` 
+`cd /usr/jails/flavours/riakcsnode`
+
+`./install.sh -k admin_key -s admin secret -i stanchion_ip` 
 
 ### have fun
 
