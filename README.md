@@ -13,17 +13,21 @@ If so, then, this is a flavour for ezjail to create a new jail with all necessar
 
 ==================
 
-###How to use it:
-
-#### by hand
+### Clone it
 
 on your host machine 
+
+`mkdir -p /usr/jails/flavours`
 
 `cd /usr/jails/flavours`
 
 clone this repo into "riakcsnode"
 
 `git clone https://github.com/herrBeesch/riakcsnode_flavour.git riakcsnode`
+
+### configure it
+
+#### by hand
 
 change 3 parameters in `/usr/jails/flavours/riakcsnode/usr/local/share/riak-cs/app.config` :
 
