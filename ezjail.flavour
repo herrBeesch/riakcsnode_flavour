@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# BEFORE: DAEMON
+#
+# Prevent this script from being called over and over if something fails.
+
+rm -f /etc/rc.d/ezjail-config.sh /ezjail.flavour
+
+# Packages
+###########
+echo 'installing the packages...'
+pkg_add -r sudo
+pkg_add -r openssl
+pkg_add http://s3.amazonaws.com/downloads.basho.com/riak/1.4/1.4.2/freebsd/9/riak-1.4.2-FreeBSD-amd64.tbz
+pkg_add http://s3.amazonaws.com/downloads.basho.com/riak-cs/1.4/1.4.2/freebsd/9/riak-cs-1.4.2-FreeBSD-amd64.tbz
+
+# Postinstall
+##############
+ln -s /usr/local/lib/libssl.so.8 /usr/local/lib/libssl.so.7
+ln -s /usr/local/lib/libcrypto.so.8 /usr/local/lib/libcrypto.so.7
+
+# config riak and riak-cs
+#############
+HN=`hostname`
+IP=`nslookup $HN | grep -w $HN -A 1 | grep -w 'Address' | cut -d ' ' -f 2`
+
+mv /usr/local/etc/riak/app.config /usr/local/etc/riak/app.config.orig
+
+cat /usr/local/share/riak/app.config | sed s/MYIP/`echo $IP`/g  > /usr/local/etc/riak/app.config
+mv /usr/local/etc/riak/vm.args /usr/local/etc/riak/vm.args.orig
+cat /usr/local/etc/riak/vm.args.orig | sed s/127.0.0.1/`echo $IP`/g > /usr/local/etc/riak/vm.args
+
+mv /usr/local/etc/riak-cs/app.config /usr/local/etc/riak-cs/app.config.orig
+cat /usr/local/share/riak-cs/app.config | sed s/MYIP/`echo $IP`/g > /usr/local/etc/riak-cs/app.config
+mv /usr/local/etc/riak-cs/vm.args /usr/local/etc/riak-cs/vm.args.orig
+cat /usr/local/etc/riak-cs/vm.args.orig | sed s/127.0.0.1/`echo $IP`/g > /usr/local/etc/riak-cs/vm.args
+
+rm -f /usr/local/share/riak/app.config
+rm -f /usr/local/share/riak-cs/app.config
+
