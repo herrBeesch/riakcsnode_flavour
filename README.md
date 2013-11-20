@@ -24,7 +24,9 @@ clone this repo into "riakcsnode"
 change 3 parameters in /usr/jails/flavours/riakcsnode/usr/local/riak-cs/app.config :
 
 YOUR_STACHION_IP to the ip address of your stanchion
+
 YOUR_ADMIN_KEY to the key of your admin user
+
 YOUR_ADMIN_SECRET to the secret of your admin user
 
 create your jail using this flavour (use your jailname and your ip)
