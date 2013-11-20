@@ -43,6 +43,10 @@ or just copy the resolv.conf of the host
 
 `cp /etc/resolv.conf /usr/jails/flavours/riakcsnode/etc/resolv.conf`
 
+remove the git files from the flavour directory
+
+`rm -rf /usr/jails/flavours/riakcsnode/.git`
+
 #### via install.sh
 
 you also can use the install.sh script which does the above for you
