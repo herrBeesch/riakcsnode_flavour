@@ -39,3 +39,6 @@ cp /etc/resolv.conf /usr/jails/flavours/riakcsnode/etc/resolv.conf
 
 mv usr/local/share/riak-cs/app.config usr/local/share/riak-cs/app.config.save
 cat usr/local/share/riak-cs/app.config.save | sed s/YOUR_ADMIN_KEY/`echo $admin_key`/g | sed s/YOUR_ADMIN_SECRET/`echo $admin_secret`/g | sed s/YOUR_STANCHION_IP/`echo $stanchion_ip`/g > usr/local/share/riak-cs/app.config
+
+mkdir -p /usr/jails/flavours/riakcsnode/pkg
+rm -rf /usr/jails/flavours/riakcsnode/.git
